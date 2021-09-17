@@ -1,0 +1,107 @@
+<script>
+    const users = [];
+
+    class person{
+        constructor(first,last,mobileNumber){
+            this.firstName = first;
+            this.lastName = last;
+            this.mobileNumber = mobileNumber;
+        }
+
+        fullName = (firstName,lastName) => {
+            console.log(`${firstName} ${lastName}`);
+        }
+    }
+
+    createPerson = (firstName,lastName,mobileNumber) => {
+        return new Promise((resolve,reject) => {
+            setTimeout(() => {
+                if(users.some(number => number.mobileNumber === mobileNumber)){
+                    reject("phone number already exists");
+                }
+                else{
+                    const object = new person(firstName,lastName,mobileNumber)
+                    let personData = {firstName:object.firstName , lastName:object.lastName , mobileNumber:object.mobileNumber}
+                    users.push(personData);
+                    resolve(object.fullName(firstName,lastName));
+                }
+                
+            },2000);
+
+        }
+    )} 
+
+    const main = async() => {
+        try {
+            await createPerson("Ashwin", "Gupta", 123456789);
+        }
+        catch(e) {
+            console.log(e);
+        }
+
+        try {
+            await createPerson("Bhavesh", "Sahani", 1234560789);
+        }
+        catch(e) {
+            console.log(e);
+        }
+
+        try {
+            await createPerson("Sandesh", "chavan", 1234567);
+        }
+        catch(e) {
+            console.log(e);
+        }
+
+        try {
+            await createPerson("Akash", "Sahani", 123456789);
+        }
+        catch(e) {
+            console.log(e);
+        }
+
+        try {
+            await createPerson("Bhavesh", "Singh", 12345670);
+        }
+        catch(e) {
+            console.log(e);
+        }
+
+        try {
+            await createPerson("Ashish", "Kumar", 1230009);
+        }
+        catch(e) {
+            console.log(e);
+        }
+
+        try {
+            await createPerson("Bhavesh", "Sahani", 123456789);
+        }
+        catch(e) {
+            console.log(e);
+        }
+
+        try {
+            await createPerson("Bhavi", "Saha", 3456789);
+        }
+        catch(e) {
+            console.log(e);
+        }
+
+        try {
+            await createPerson("havesh", "hani", 123456789);
+        }
+        catch(e) {
+            console.log(e);
+        }
+
+        try {
+            await createPerson("Bhavesh", "Gupta", 123456789);
+        }
+        catch(e) {
+            console.log(e);
+        }
+    }
+
+    main();
+</script>

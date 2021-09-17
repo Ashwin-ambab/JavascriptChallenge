@@ -1,0 +1,65 @@
+<script>
+    const users = [];
+
+    class person{
+        constructor(first,last,mobileNumber){
+            this.firstName = first;
+            this.lastName = last;
+            this.mobileNumber = mobileNumber;
+        }
+
+        fullName = (firstName,lastName) => {
+            console.log(`${firstName} ${lastName}`);
+        }
+    }
+
+    createPerson = (firstName,lastName,mobileNumber) => {
+        return new Promise((resolve,reject) => {
+            setTimeout(() => {
+                if(users.some(number => number.mobileNumber === mobileNumber)){
+                    reject("phone number already exists");
+                }
+                else{
+                    const object = new person(firstName,lastName,mobileNumber)
+                    let personData = {firstName:object.firstName , lastName:object.lastName , mobileNumber:object.mobileNumber}
+                    users.push(personData);
+                    resolve(object.fullName(firstName,lastName));
+                }
+                
+            },2000);
+
+        }
+    )} 
+
+    const main = () => {
+        createPerson("Ashwin", "Gupta" , 123456)
+        .then(() => createPerson("sandesh","chavan",456891))
+        .catch((error) => console.log(error))
+
+        .then(() => createPerson("akash","chavan",123456))
+        .catch((error) => console.log(error))
+
+        .then(() => createPerson("akshay","singh",1234564))
+        .catch((error) => console.log(error))
+
+        .then(() => createPerson("lovelessh","pawar",123456412))
+        .catch((error) => console.log(error))
+
+        .then(() => createPerson("akshay","chavan",123456421))
+        .catch((error) => console.log(error))
+
+        .then(() => createPerson("akshaya","chavan",1234564))
+        .catch((error) => console.log(error))
+
+        .then(() => createPerson("akshay","chavan",12342564))
+        .catch((error) => console.log(error))
+
+        .then(() => createPerson("akshay","chavan",12314564))
+        .catch((error) => console.log(error))
+
+        .then(() => createPerson("akshay","chavan",1234564))
+        .catch((error) => console.log(error))
+    }
+
+    main();
+</script>
