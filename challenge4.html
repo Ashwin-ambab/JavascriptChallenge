@@ -9,14 +9,15 @@
         }
 
         fullName = (firstName,lastName) => {
-            console.log(`${firstName} ${lastName}`);
+            return `${firstName} ${lastName}`;
         }
     }
 
     createPerson = (firstName,lastName,mobileNumber) => {
         return new Promise((resolve,reject) => {
             setTimeout(() => {
-                if(users.some(number => number.mobileNumber === mobileNumber)){
+                if(users.some(user => user
+                .mobileNumber === mobileNumber)){
                     reject("phone number already exists");
                 }
                 else{
@@ -33,32 +34,50 @@
 
     const main = () => {
         createPerson("Ashwin", "Gupta" , 123456)
-        .then(() => createPerson("sandesh","chavan",456891))
+        .then((data) => console.log(data))
         .catch((error) => console.log(error))
 
-        .then(() => createPerson("akash","chavan",123456))
+        createPerson("Ashish", "Kumar" , 12345612)
+        .then((data) => console.log(data))
         .catch((error) => console.log(error))
 
-        .then(() => createPerson("akshay","singh",1234564))
+        createPerson("Akash", "sahani" , 12345645)
+        .then((data) => console.log(data))
         .catch((error) => console.log(error))
 
-        .then(() => createPerson("lovelessh","pawar",123456412))
+        createPerson("Ashwin", "Gupta" , 123456)
+        .then((data) => console.log(data))
         .catch((error) => console.log(error))
 
-        .then(() => createPerson("akshay","chavan",123456421))
+        createPerson("Ashish", "Singh" , 12345612)
+        .then((data) => console.log(data))
         .catch((error) => console.log(error))
 
-        .then(() => createPerson("akshaya","chavan",1234564))
+        createPerson("Anand", "PEddaram" , 12345621)
+        .then((data) => console.log(data))
         .catch((error) => console.log(error))
 
-        .then(() => createPerson("akshay","chavan",12342564))
+        createPerson("Ashwin", "Gupta" , 123456)
+        .then((data) => console.log(data))
         .catch((error) => console.log(error))
 
-        .then(() => createPerson("akshay","chavan",12314564))
+        createPerson("Ashwin", "Gupta" , 12345621)
+        .then((data) => console.log(data))
         .catch((error) => console.log(error))
 
-        .then(() => createPerson("akshay","chavan",1234564))
+        createPerson("Ashwin", "Gupta" , 1234561242)
+        .then((data) => console.log(data))
         .catch((error) => console.log(error))
+
+        createPerson("Ashwin", "Gupta" , 123456)
+        .then((data) => console.log(data))
+        .catch((error) => console.log(error))
+
+        createPerson("Ashwin", "Gupta" , 123456)
+        .then((data) => console.log(data))
+        .catch((error) => console.log(error))
+
+        
     }
 
     main();
